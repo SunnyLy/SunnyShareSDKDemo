@@ -40,6 +40,28 @@ public class MainActivity extends AppCompatActivity implements ICommonShareLinst
     private String mQQAppId = "1104541762";//CLife用的
     private String mSinaWeiboAppId = "3475229326";//Clife用
 
+    private ICommonShareLinstener shareLinstener = new ICommonShareLinstener() {
+        @Override
+        public void onStartShare(CommonSharePlatform sharePlatform) {
+
+        }
+
+        @Override
+        public void onShareSuccess(CommonSharePlatform sharePlatform, String msg) {
+
+        }
+
+        @Override
+        public void onShareFialure(CommonSharePlatform sharePlatform, String msg) {
+
+        }
+
+        @Override
+        public void onShareCancel(CommonSharePlatform sharePlatform) {
+
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +90,17 @@ public class MainActivity extends AppCompatActivity implements ICommonShareLinst
                 registerQQ(mQQAppId).
                 registerSinaWeibo(mSinaWeiboAppId).create();
         mShareDialog = new CommonShareDialog(this, this);
-
+        mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher), "测试1", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        shareLinstener.onStartShare(CommonSharePlatform.WeixinFriend);
+                    }
+                });
+        /*mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试1",null);
+        mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试2",null);
+        mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试3",null);
+        mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试4",null);
+        mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试5",null);*/
     }
 
 
@@ -184,7 +216,6 @@ public class MainActivity extends AppCompatActivity implements ICommonShareLinst
     }
 
     public void startShare(View view) {
-
         if (mShareDialog != null && !mShareDialog.isShowing()) {
             mShareDialog.show();
         }
