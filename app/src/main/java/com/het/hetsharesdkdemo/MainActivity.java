@@ -96,11 +96,11 @@ public class MainActivity extends AppCompatActivity implements ICommonShareLinst
                         shareLinstener.onStartShare(CommonSharePlatform.WeixinFriend);
                     }
                 });
-        /*mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试1",null);
+        mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试1",null);
         mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试2",null);
         mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试3",null);
-        mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试4",null);
-        mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试5",null);*/
+      //  mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试4",null);
+       // mShareDialog.addShareView(getResources().getDrawable(R.drawable.ic_launcher),"测试5",null);
     }
 
 
