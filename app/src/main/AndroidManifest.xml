@@ -28,12 +28,12 @@
 
         <!-- ====================分享开始 ========================== -->
         <!-- 分享 -->
-        <!-- <activity
+         <activity
              android:name=".wxapi.WXEntryActivity"
              android:configChanges="keyboardHidden|orientation"
              android:exported="true"
              android:screenOrientation="portrait"
-             android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
+             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <activity
             android:name="com.tencent.connect.common.AssistActivity"

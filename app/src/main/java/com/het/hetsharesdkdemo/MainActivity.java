@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity implements ICommonShareLinst
     private String mDescription = "阳总,下午好！喝下午茶了！";
     private String mImgUrl = "http://pic15.nipic.com/20110725/7067632_020203324179_2.jpg";
 
-    private String mWeixinAppId = "wxd930ea5d5a258f4f";//微信Demo用
+    public static String mWeixinAppId = "wxd930ea5d5a258f4f";//微信Demo用
     private String mWeixinSecrect = "";//分享的时候不要用到secretId,只有微信登录的时候要
 
     private String mQQAppId = "1104541762";//CLife用的
     private String mSinaWeiboAppId = "3475229326";//Clife用
 
-    private ICommonShareLinstener shareLinstener = new ICommonShareLinstener() {
+    public static ICommonShareLinstener shareLinstener = new ICommonShareLinstener() {
         @Override
         public void onStartShare(CommonSharePlatform sharePlatform) {
 
@@ -163,14 +163,15 @@ public class MainActivity extends AppCompatActivity implements ICommonShareLinst
         webpage.setDescription(mDescription);
         webpage.setAppName("SunnyDemo");
         webpage.setTargetUrl(mTargetUrl);
+        webpage.setWebpageUrl(mTargetUrl);
         webpage.setBm(null);
         webpage.setSharePlatform(sharePlatform);
 
         //分享音乐
-         mShareManger.shareMusic(music);
+        // mShareManger.shareMusic(music);
         //分享网页
-       /* webpage.setImgUrl(mImgUrl);
-        mShareManger.shareWebpage(webpage);*/
+        webpage.setImgUrl(mImgUrl);
+        mShareManger.shareWebpage(webpage);
         Toast.makeText(this, "点击：" + sharePlatform, Toast.LENGTH_SHORT).show();
     }
 

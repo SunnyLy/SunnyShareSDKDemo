@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.het.hetsharesdkdemo.MainActivity;
+import com.sina.weibo.sdk.utils.LogUtil;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.openapi.IWXAPI;
@@ -15,7 +17,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
  * Annotion:
  */
 public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
-    private String WeiXinAppID = "";
+    private String WeiXinAppID = MainActivity.mWeixinAppId;
     private IWXAPI api;
 
     @Override
@@ -33,6 +35,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
     @Override
     public void onResp(BaseResp resp) {
+        LogUtil.e("platform",resp.getType()+"");
         String result = "";
         switch (resp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
